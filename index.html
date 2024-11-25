@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mobile Emoji Planner</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <!-- Link to the CSS file -->
+  <link rel="stylesheet" href="style.css">
+  <!-- Include Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Background Container for Pixel Art Clouds -->
+  <div class="background-container"></div>
+
+  <!-- Header Section -->
+  <header>
+    <div id="header-container">
+      <!-- Left Side: Live Time -->
+      <div class="header-left">
+        <span id="live-time">--:--:--</span>
+      </div>
+      <!-- Center: Logo -->
+      <div class="header-center">
+        <img src="images/logo.png" alt="Emoji Day Planner Logo" class="logo">
+      </div>
+      <!-- Right Side: Reset Button -->
+      <div class="header-right">
+        <div class="icon-container">
+          <span class="delete-label">Reset Planner</span>
+          <button id="reset-button" class="icon-button" aria-label="Reset Planner">
+            <img src="images/reset-icon.png" alt="Reset Icon">
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Emoji Deck Section -->
+  <div id="emoji-deck" class="emoji-deck">
+    <div class="deck-body">
+      <!-- Emoji Grid -->
+      <div id="emoji-grid" class="emoji-grid"></div>
+      <!-- Navigation Buttons for Categories -->
+      <div class="navigation-buttons">
+        <button id="prev-category" class="nav-button" aria-label="Previous Category">◀️</button>
+        <span id="category-name">Car</span>
+        <button id="next-category" class="nav-button" aria-label="Next Category">▶️</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main>
+    <div class="sectors-container">
+      <!-- Morning Sector -->
+      <div class="sector" id="morning-sector">
+        <div class="sector-header">
+          <h2>Morning</h2>
+          <!-- Huiswerk Button -->
+          <button class="huiswerk-button" aria-label="Huiswerk Button">
+            <span class="huiswerk-text">Huiswerk</span>
+            <span class="huiswerk-check">✔️</span>
+          </button>
+        </div>
+        <div class="emoji-placeholders">
+          <!-- Regular Placeholders -->
+          <div class="emoji-placeholder" data-time="morning"></div>
+          <div class="emoji-placeholder" data-time="morning"></div>
+          <div class="emoji-placeholder" data-time="morning"></div>
+          <div class="emoji-placeholder" data-time="morning"></div>
+        </div>
+      </div>
+
+      <!-- Midday Sector -->
+      <div class="sector" id="midday-sector">
+        <div class="sector-header">
+          <h2>Midday</h2>
+          <!-- Huiswerk Button -->
+          <button class="huiswerk-button" aria-label="Huiswerk Button">
+            <span class="huiswerk-text">Huiswerk</span>
+            <span class="huiswerk-check">✔️</span>
+          </button>
+        </div>
+        <div class="emoji-placeholders">
+          <!-- Regular Placeholders -->
+          <div class="emoji-placeholder" data-time="midday"></div>
+          <div class="emoji-placeholder" data-time="midday"></div>
+          <div class="emoji-placeholder" data-time="midday"></div>
+          <div class="emoji-placeholder" data-time="midday"></div>
+        </div>
+      </div>
+
+      <!-- Evening Sector -->
+      <div class="sector" id="evening-sector">
+        <div class="sector-header">
+          <h2>Evening</h2>
+          <!-- Huiswerk Button -->
+          <button class="huiswerk-button" aria-label="Huiswerk Button">
+            <span class="huiswerk-text">Huiswerk</span>
+            <span class="huiswerk-check">✔️</span>
+          </button>
+        </div>
+        <div class="emoji-placeholders">
+          <!-- Regular Placeholders -->
+          <div class="emoji-placeholder" data-time="evening"></div>
+          <div class="emoji-placeholder" data-time="evening"></div>
+          <div class="emoji-placeholder" data-time="evening"></div>
+          <div class="emoji-placeholder" data-time="evening"></div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer Section -->
+  <footer>
+    <!-- Custom Text Input Fields -->
+    <div class="custom-text-inputs">
+      <input type="text" placeholder="Add notes..." aria-label="Add notes">
+      <input type="text" placeholder="Add notes..." aria-label="Add notes">
+      <input type="text" placeholder="Add notes..." aria-label="Add notes">
+    </div>
+    <!-- Day Rating System -->
+    <div class="day-rating">
+      <!-- Initial Rating Circle -->
+      <div class="rating-circle" id="rating-circle" aria-label="Rate your day">
+        <span class="rate-text">Rate</span>
+      </div>
+      <!-- Rating Buttons (Hidden Initially) -->
+      <div class="rating-buttons" id="rating-buttons">
+        <button class="rating-button" data-rating="1" aria-label="Rate 1"></button>
+        <button class="rating-button" data-rating="2" aria-label="Rate 2"></button>
+        <button class="rating-button" data-rating="3" aria-label="Rate 3"></button>
+        <button class="rating-button" data-rating="4" aria-label="Rate 4"></button>
+        <button class="rating-button" data-rating="5" aria-label="Rate 5"></button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Link to the JavaScript file -->
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,468 @@
+/* Import the League Spartan font */
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan&display=swap');
+
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'League Spartan', Arial, sans-serif;
+  overflow-x: hidden;
+  background-color: #87CEEB; /* Sky blue background */
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Background Container for Pixel Art Clouds */
+.background-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 100%;
+  background-image: url('data:image/svg+xml;base64,[BASE64_ENCODED_ORIGINAL_CLOUD_SVG]');
+  background-repeat: repeat-x;
+  background-size: contain;
+  animation: moveClouds 60s linear infinite;
+  z-index: -1;
+}
+
+@keyframes moveClouds {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Header Styles */
+header {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 10px 15px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  box-sizing: border-box;
+  border-bottom: 1px solid #ccc;
+}
+
+#header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-left,
+.header-center,
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+.header-left,
+.header-right {
+  flex: 1;
+}
+
+.header-center {
+  flex: 1;
+  justify-content: center;
+}
+
+#live-time {
+  font-size: 1em;
+  color: #333;
+  font-weight: bold;
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+}
+
+.icon-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.delete-label {
+  font-size: 0.8em;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.icon-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.icon-button img {
+  width: 30px;
+  height: 30px;
+}
+
+/* Emoji Deck Styles */
+#emoji-deck {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 0;
+  width: 100%;
+  z-index: 900;
+  position: relative;
+  margin-top: 70px; /* Align with the header */
+}
+
+.deck-body {
+  max-height: none; /* Remove max-height to display all emojis */
+  overflow: hidden; /* Hide scroll bar */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Emoji Grid */
+.emoji-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.emoji-item {
+  width: 40px;
+  height: 40px;
+  font-size: 1.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: grab;
+  user-select: none;
+  transition: transform 0.1s;
+  background-color: #fff;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+
+.emoji-item:active {
+  transform: scale(1.1);
+}
+
+/* Navigation Buttons */
+.navigation-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  gap: 20px;
+}
+
+.nav-button {
+  background-color: #d3eaff;
+  border: none;
+  font-size: 1.5em;
+  cursor: pointer;
+  color: #333;
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.nav-button:hover {
+  background-color: #a0c4ff;
+  transform: scale(1.05);
+}
+
+#category-name {
+  font-size: 1em;
+  color: #333;
+  font-weight: bold;
+}
+
+/* Main Content Styling */
+main {
+  padding-top: 200px; /* Adjusted padding */
+  padding-bottom: 20px;
+}
+
+.sectors-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Reduced gap between sectors */
+  padding: 0 15px;
+}
+
+.sector {
+  background-color: rgba(230, 247, 255, 0.8);
+  border: 1px solid #b3daff;
+  border-radius: 10px;
+  padding: 5px; /* Reduced padding */
+  text-align: center;
+  position: relative;
+  transition: box-shadow 0.3s;
+}
+
+/* Sector Header */
+.sector-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5px;
+  position: relative;
+}
+
+.sector-header h2 {
+  font-size: 1em;
+  color: #333;
+  font-weight: bold;
+}
+
+/* Huiswerk Button Styles */
+.huiswerk-button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background-color: #f44336; /* Red by default */
+  color: #fff;
+  border: none;
+  border-radius: 8px; /* Rounded edges */
+  padding: 8px 12px; /* Adjusted padding */
+  font-size: 0.9em; /* Adjusted font size */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: background-color 0.3s;
+}
+
+.huiswerk-button.active {
+  background-color: #4CAF50; /* Green when active */
+}
+
+.huiswerk-button .thumb-animation {
+  animation: thumbsUp 2s forwards;
+}
+
+@keyframes thumbsUp {
+  0% { opacity: 0; transform: scale(0.5); }
+  50% { opacity: 1; transform: scale(1.2); }
+  100% { opacity: 0; transform: scale(0.5); }
+}
+
+/* Ensure text and check mark are properly aligned */
+.huiswerk-button .huiswerk-text,
+.huiswerk-button .huiswerk-check {
+  display: inline-block;
+}
+
+/* Emoji Placeholders */
+.emoji-placeholders {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.emoji-placeholder {
+  width: 50px;
+  height: 50px;
+  background-color: #fff;
+  border: 2px dashed #b3daff;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8em;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.3s, border-color 0.3s, transform 0.3s;
+}
+
+/* Footer Styles */
+footer {
+  margin-top: 10px;
+  padding: 0 15px 20px;
+  text-align: center;
+}
+
+/* Custom Text Input Fields */
+.custom-text-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.custom-text-inputs input {
+  padding: 10px;
+  font-size: 1em;
+  border: 1px solid #b3daff;
+  border-radius: 10px;
+  outline: none;
+  width: 100%;
+  background-color: #fff;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.custom-text-inputs input:focus {
+  border-color: #4CAF50;
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
+
+.custom-text-inputs input::placeholder {
+  color: #999;
+}
+
+/* Day Rating System */
+.day-rating {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.rating-circle {
+  width: 60px;
+  height: 60px;
+  background-color: #fff;
+  border: 3px solid #d3eaff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s, transform 0.3s;
+}
+
+.rating-circle:hover {
+  background-color: #a0c4ff;
+  border-color: #4CAF50;
+  transform: scale(1.05);
+}
+
+.rate-text {
+  font-size: 1em;
+  color: #333;
+}
+
+.rating-buttons {
+  display: flex;
+  gap: 5px;
+}
+
+.rating-button {
+  background-color: #d3eaff;
+  border: 3px solid #fff;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.1s, border-color 0.3s, background-color 0.3s;
+  display: none; /* Hidden initially */
+}
+
+.rating-button:hover {
+  background-color: #a0c4ff;
+  border-color: #4CAF50;
+  transform: scale(1.05);
+}
+
+.rating-button.selected::before {
+  content: '👍';
+  position: absolute;
+  font-size: 1.5em;
+  color: #333;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.rating-button:active {
+  transform: scale(1.1);
+}
+
+/* Dragging Clone Styles */
+.dragging-clone {
+  opacity: 0.8;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(1.15); /* Enlarge by approximately 6px */
+  transition: transform 0.15s ease;
+}
+
+/* Responsive Styles */
+@media (max-width: 480px) {
+  /* Adjustments for mobile devices */
+  main {
+    padding-top: 180px; /* Further reduced padding */
+    padding-bottom: 20px;
+  }
+
+  .sector {
+    padding: 5px;
+  }
+
+  .huiswerk-button {
+    top: 5px;
+    right: 5px;
+    padding: 6px 10px;
+    font-size: 0.8em;
+  }
+
+  .logo {
+    width: 35px;
+    height: 35px;
+  }
+
+  .icon-button img {
+    width: 25px;
+    height: 25px;
+  }
+
+  #live-time {
+    font-size: 0.9em;
+  }
+
+  .emoji-item,
+  .emoji-placeholder,
+  .rating-button {
+    width: 35px;
+    height: 35px;
+    font-size: 1.2em;
+  }
+
+  .rating-circle {
+    width: 50px;
+    height: 50px;
+  }
+
+  .nav-button {
+    width: 35px;
+    height: 35px;
+    font-size: 1.3em;
+  }
+
+  .sector-header h2 {
+    font-size: 0.9em;
+  }
+
+  .custom-text-inputs input {
+    padding: 8px;
+    font-size: 0.9em;
+  }
+
+  .rate-text {
+    font-size: 0.9em;
+  }
+}
